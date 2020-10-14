@@ -1,0 +1,65 @@
+{
+  "id": "1971913",
+  "name": "pride2.0",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8119795",
+      "name": "禁止",
+      "font_class": "stop",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "6587519",
+      "name": "实时视频",
+      "font_class": "shishishipin",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
+      "icon_id": "6970012",
+      "name": "发送信息",
+      "font_class": "fasongxinxi",
+      "unicode": "e6f6",
+      "unicode_decimal": 59126
+    },
+    {
+      "icon_id": "6869834",
+      "name": "对比",
+      "font_class": "duibi",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "15364558",
+      "name": "告警数据",
+      "font_class": "jingbao",
+      "unicode": "e741",
+      "unicode_decimal": 59201
+    },
+    {
+      "icon_id": "14163230",
+      "name": "历史轨迹",
+      "font_class": "lishiguiji1",
+      "unicode": "e684",
+      "unicode_decimal": 59012
+    },
+    {
+      "icon_id": "8989653",
+      "name": "轨迹",
+      "font_class": "guiji1",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "10733764",
+      "name": "说明",
+      "font_class": "shuoming",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    }
+  ]
+}
