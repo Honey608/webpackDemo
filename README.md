@@ -7,11 +7,13 @@
 
     2-1.例如在dist中自动打包一个新的 vendors~main.js 文件，当改变业务代码时，就不用重新加载lodash库
     如何配置：在 webpack.config.js配置如下
+    ```
     optimization: {
         splitChunks: {
             chunks: 'all'
         }
     }
+    ```
     2-2.使用符合ECMAScript提案的import()语法 实现code splitting，请看index.js方式二
 
     二.解决css代码分割
