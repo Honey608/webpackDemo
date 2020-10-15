@@ -10,8 +10,13 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: '[name].js',
+        filename: '[name].[contenthash].js',
         chunkFilename:'[name].chunk.js'
+    },
+    optimization: {
+        runtimeChunk: {
+            name: "runtime"
+        }
     },
     module: {
         rules: [

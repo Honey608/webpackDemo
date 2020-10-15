@@ -12,9 +12,42 @@
             }
         }
         2-2.使用符合ECMAScript提案的import()语法 实现code splitting，请看index.js方式二
-        
+
     二. 解决css代码分割
         使用 mini-css-extract-plugin插件
 
     三. Prefetching 提高网页加载速度 请参考index.js写法
 
+### [Webpack 与浏览器缓存( Caching )](https://webpack.docschina.org/guides/caching/)
+    代码不变，文件名不变。代码改变，文件名就改变。来实现浏览器，是否需要从服务器重新加载文件
+    配置如下：添加一个contenthash 这样的占位符，
+    output: {
+        filename: '[name].[contenthash].js',
+    }
+    解决老版本内容不变，文件名变化，需要额外配置如下内容,打包后最终会单独提取用于描述文件之间的runtime.xxx.js文件
+    optimization: {
+        runtimeChunk: {
+            name: "runtime"
+        }
+    }
+
+### [Shimming 预置全局变量](https://webpack.docschina.org/guides/shimming/)
+    如下配置 就可以在全局使用lodash,甚至只使用lodash中join一个方法,还有可以解决this指向，等问题
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: 'jquery'
+            _: 'lodash',
+            join: ['lodash', 'join']
+        }),
+    ]
+### library 的打包
+    基本配置如下：
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'labrary.js',
+        library: 'root',     // 可以通过script src引用
+        libraryTarget: 'umd' // 支持umd引用
+    },
+    externals: {
+        lodash: 'lodash' // 自己库中如果使用其他库 别打包一起
+    }
