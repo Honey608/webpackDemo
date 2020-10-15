@@ -3,7 +3,7 @@ const commonConfig = require('./webpack.common');
 
 const prodConfig = {
     mode: "production",
-    devtool: "cheap-source-map"
+    devtool: "source-map"
 }
 
 module.exports = merge(commonConfig, prodConfig)

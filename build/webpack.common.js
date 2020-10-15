@@ -1,6 +1,8 @@
 const path = require('path')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var { CleanWebpackPlugin } = require('clean-webpack-plugin');
+var {
+    CleanWebpackPlugin
+} = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -8,38 +10,35 @@ module.exports = {
         main: './src/index.js',
     },
     output: {
-        path: path.resolve(__dirname,'../dist'),
+        path: path.resolve(__dirname, '../dist'),
         filename: '[name].js',
         // publicPath: 'https://cdn.example.com/assets/'
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.(png|jpe?g|gif)$/i,
-                use: [
-                    {
-                      loader: 'url-loader',
-                      options: {
-                          name: '[name].[ext]',
-                          outputPath:'images/',
-                          limit: 8192,
-                        }
-                    },
-                ],
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'images/',
+                        limit: 8192,
+                    }
+                }, ],
             },
             {
                 test: /\.(css|less)$/,
                 use: [
-                    'style-loader', 
+                    'style-loader',
                     {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 2,
                             modules: true
                         }
-                    }, 
+                    },
                     'postcss-loader',
-                    'less-loader', 
+                    'less-loader',
                 ],
             },
             {
@@ -48,8 +47,9 @@ module.exports = {
                     loader: 'file-loader'
                 }
             },
-            { 
-                test: /\.js$/, exclude: /node_modules/, 
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
                 loader: 'babel-loader'
             }
         ]
@@ -60,10 +60,5 @@ module.exports = {
             template: 'index.html'
         }),
         new CleanWebpackPlugin(),
-    ],
-    optimization: {
-        splitChunks: {
-            chunks: 'all'
-        }
-    }
+    ]
 }

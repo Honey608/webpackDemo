@@ -9,7 +9,6 @@ import './usefont';
 import './creatButton';
 import avatar from './static/images/scenery.jpg';
 import style from './static/css/index.less';
-import _ from 'lodash';
 
 var img = new Image();
 img.src = avatar;
@@ -30,5 +29,3 @@ if (module.hot) {
         number();
     })
 }
-
-console.log(_.join(['a','b','c'],'***'))
