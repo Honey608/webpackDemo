@@ -40,7 +40,7 @@
             join: ['lodash', 'join']
         }),
     ]
-### library 的打包
+###  [library 的打包](https://webpack.docschina.org/guides/author-libraries/#authoring-a-library)
     基本配置如下：
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -51,3 +51,38 @@
     externals: {
         lodash: 'lodash' // 自己库中如果使用其他库 别打包一起
     }
+
+### [PWA](https://webpack.docschina.org/guides/progressive-web-application/#root)
+    作用：在断网的情况下依然可以浏览页面
+    基本配置如下：
+    安装 workbox-webpack-plugin 插件
+    plugins: [
+        new WorkBoxWebpackPlugin.GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true
+        })
+    ]
+    index.js
+    if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js');
+    });
+}
+
+### [打包TypeScript](https://webpack.docschina.org/guides/typescript/)
+
+### [多页面打包配置](https://github.com/jantimon/html-webpack-plugin)
+    使用html-webpack-plugin的配置进行多页面配置
+    配置如下：
+    根据入口文件个数自动生成 多个index.html文件
+    Object.keys(config.entry).forEach(item=>{
+        plugins.push(
+                new htmlWebpackPlugin({
+                template: 'src/index.html',
+                filename: `${item}.html`,
+                chunks: ['runtime', 'vendors', item]
+            })
+        )
+    })
+
+### [实现一个loade](https://webpack.docschina.org/api/loaders/#examples)

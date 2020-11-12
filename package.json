@@ -6,7 +6,8 @@
   "dependencies": {
     "@babel/polyfill": "^7.11.5",
     "@babel/runtime": "^7.11.2",
-    "@babel/runtime-corejs2": "^7.11.2"
+    "@babel/runtime-corejs2": "^7.11.2",
+    "workbox-webpack-plugin": "^5.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
@@ -20,6 +21,7 @@
     "express": "^4.17.1",
     "file-loader": "^6.1.1",
     "html-webpack-plugin": "^4.5.0",
+    "http-server": "^0.12.3",
     "less": "^3.12.2",
     "less-loader": "^7.0.2",
     "lodash": "^4.17.20",
@@ -43,9 +45,10 @@
     "Android >= 4.0"
   ],
   "scripts": {
+    "start": "http-server -c-1 ./dist",
     "watch": "webpack --watch",
     "dev": "webpack-dev-server --config ./build/webpack.dev.js",
-    "build": "webpack webpack --profile --json > stats.json --config ./build/webpack.prod.js",
+    "build": "webpack --config ./build/webpack.prod.js",
     "middleware": "node server.js"
   },
   "keywords": [],
